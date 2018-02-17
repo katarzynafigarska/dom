@@ -19,3 +19,18 @@ istniejacyWezel.removeChild(newElement);
 var parFirstDiv = document.getElementById('parFirst');
 parFirstDiv.replaceChild(newElement, istniejacyWezel);
 // zamien drugi link na paragraf
+
+var alllinks = document.getElementsByTagName('a');  //przypisz do zmiennej tablice ze wszystkimi linkami, 
+//var alllinks = document.querySelectorAll('a');  //alternatywa
+
+//console.log(alllinks);
+//Array.form("nodeList");
+
+for (var i = 0; i < alllinks.length; i++) {   //iteracja po tablicy
+    var br = document.createElement('br');  //stworz element <br>
+    //console.log(allLinks[i].parentNode);
+    alllinks[i].parentNode.insertBefore(br, alllinks[i].nextSibling);  //dodaj br po każdym linku (br - co wstawiamy, allLinks - za czym wstawiamy),  alllinks[i].parentNode -element do ktorego sie odwolujemy, .insertBefore(br, alllinks[i].nextSibling); - metoda jaka wykonujemy na tym elemencie
+    alllinks[i].removeAttribute('class');  //usuń atrybut klasa dla kazdego linku
+}
+
+
